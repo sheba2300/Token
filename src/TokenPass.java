@@ -3,7 +3,7 @@ public class TokenPass {
     private int currentPlayer;
     public TokenPass(int playerCount)
     {
-        board = new int[playerCount];
+        int [] board = new int[playerCount];
         for(int x =0; x<playerCount; x++)
         {
             board[x] = 1+(int)(10*Math.random());
