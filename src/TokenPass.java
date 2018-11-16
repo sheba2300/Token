@@ -9,7 +9,7 @@ public class TokenPass {
             board[x] = 1+(int)(10*Math.random());
         }
         currentPlayer = (int)(playerCount * Math.random());
-        System.out.println(currentPlayer);
+        System.out.println(board.length);
 
     }
     public void distributeCurrentPlayerTokens()
@@ -28,23 +28,23 @@ public class TokenPass {
     public String printBoard()
     {
         String display = "";
-        for(int x = 0; x<board.length;x++)
+        for(int i=0; i<board.length;i++)
         {
-            display = display + x + ":" + board[x] + "\n";
+            display = display + i + ":" + board[i] + "\n";
         }
         return display;
     }
     public int gameOver()
     {
-        for(int x =0; x<board.length; x++)
+        for(int x=0; x<board.length; x++)
         {
-            if(board[x] <= 0);
-            return -1;
+            if(board[x] == 0);
+            return x;
         }
-        return 1;
+        return -1;
     }
     public void nextPlayer()
     {
-        currentPlayer++;
+        currentPlayer+= (currentPlayer +1) % board.length;
     }
 }
